@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["FormsPageHeading"];
+}
+@model FormExampleViewModel
+
+<h1 class="display-4">@Localizer["FormsPageHeading"]</h1>
+
+<form asp-controller="Forms" asp-action="Edit" method="post" class="submit-form">
+    <div class="form-item">
+        <label for="Title" id="TitleLabel"><span>@Localizer["Title"]</span></label>
+        <div class="form-description">@Localizer["DemonstrateFromAttribute"]</div>
+        @Html.ValidationMessageFor(model => model.Title)
+        <div class="form-item--medium">
+            <select class="form-select" asp-for="Title" id="title" name="title">
+                <option value="" selected>@Localizer["Select a title"]</option>
+                <option value="Dr">@Localizer["Dr"]</option>
+                <option value="Miss">@Localizer["Miss"]</option>
+                <option value="Mr">@Localizer["Mr"]</option>
+                <option value="Mrs">@Localizer["Mrs"]</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-item">
+        <label for="FirstName" id="FirstNameLabel"><span>@Localizer["First name"]</span></label>
+        <div class="form-description">@Localizer["DemonstrateFromAttribute"]</div>
+        @Html.ValidationMessageFor(model => model.FirstName)
+        <div class="form-item--medium">
+            <input class="text-box single-line" asp-for="FirstName" id="FirstName" name="FirstName" type="text">
+        </div>
+    </div>
+
+    <div class="form-item">
+        <fieldset class="radios--wrapper" control-id="ControlID-2">
+            <legend>@Localizer["AreYouUnder25Label"]</legend>
+            <div class="form-description">@Localizer["DemonstrateFromModel"]</div>
+            @Html.ValidationMessageFor(model => model.AreYouUnder25)
+
+            <div class="row row-cols-lg-auto">
+                <div class="col">
+                    <div class="form-item m-0 w-100">
+                        <input asp-for="AreYouUnder25" id="AreYouUnder25Yes" name="AreYouUnder25" type="radio" value="yes">
+                        <label for="AreYouUnder25Yes">@Localizer["Yes"]</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-item m-0 w-100">
+                        <input asp-for="AreYouUnder25" id="AreYouUnder25No" name="AreYouUnder25" type="radio" value="no">
+                        <label for="AreYouUnder25No">@Localizer["No"]</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-item">
+        <label for="AmountApplyingFor" id="AmountApplyingForLabel"><span>@Localizer["AmountApplyingFor"]</span></label>
+        <div class="form-description">@Localizer["DemonstrateFromController"]</div>
+        <div class="form-text">@Localizer["AmountApplyingForHint"]</div>
+        @Html.ValidationMessageFor(model => model.AmountApplyingFor)
+
+        <div class="form-item--medium">
+            <span class="hint-currency">£</span><input class="text-box single-line" asp-for="AmountApplyingFor" id="AmountApplyingFor" name="AmountApplyingFor" type="text" />
+        </div>
+    </div>
+
+    <div class="form-item">
+        <div class="form-description">@Localizer["DemonstrateFromAttribute"]</div>
+        @Html.ValidationMessageFor(model => model.AuthorisedToSubmit)
+        <fieldset control-id="ControlID-1">
+            <div class="checkboxes__item">
+                <input class="checkboxes__input" id="AuthorisedToSubmit" name="AuthorisedToSubmit" type="checkbox" value="true" checked="@Model.AuthorisedToSubmit">
+                @Html.LabelFor(model => model.AuthorisedToSubmit, new { @class = "checkboxes__label" })
+            </div>
+        </fieldset>
+    </div>
+
+    <button class="btn btn-success" type="submit">@Localizer["Submit"]</button>
+ </form>

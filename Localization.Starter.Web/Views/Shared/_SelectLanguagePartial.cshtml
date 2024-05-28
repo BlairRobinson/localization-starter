@@ -1,0 +1,18 @@
+﻿@using Localization.Starter.Web.Utils
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+<div class="form-inline">
+    @if (Localizations.IsWelsh(Context))
+    {
+        <a class="btn btn-language-switcher" id="languageSwitcher" href="?culture=en-GB">English</a>
+    }
+    else
+    {
+        <a class="btn btn-language-switcher" id="languageSwitcher" href="?culture=cy-GB">Cymraeg</a>
+    }
+</div>

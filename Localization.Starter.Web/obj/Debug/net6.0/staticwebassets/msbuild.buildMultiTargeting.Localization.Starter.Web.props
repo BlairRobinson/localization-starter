@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Localization.Starter.Web.props" />
+</Project>
