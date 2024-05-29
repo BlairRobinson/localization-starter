@@ -7,5 +7,7 @@
 *.userosscache
 *.sln.docstates
 .vs/
-bin
-obj
+bin/
+obj/
+Debug/
+*.obj
