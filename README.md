@@ -1,5 +1,5 @@
 # Localization Starter Project
-This is a starter code base for any project that has a bilingual requirment. Written in .NET 6 this project has localization already set up and can be taken and resused to get development work started faster.
+This is a starter code base for any project that has a bilingual requirement. Written in .NET 6 this project has localization already set up and can be taken and resused to get development work started faster.
 
 This project has used Welsh as the second language requirement. If you have a different language requirment [See instructions below](#changing-languages)
 
@@ -42,6 +42,10 @@ AddDataAnnotationsLocalization allows any annotations/attributes on properties t
 <br/>
 
 ## Changing Languages
+
+This starter project supports English (en-GB) and Welsh (cy-GB).  To replace a lnaguage with another, configure its culture and provide translations for the pages and validation messages. The steps below use French (fr-FR) as an example.
+
+1. Configure the Supported Cultures
 
 ```c#
 builder.Services.Configure<RequestLocalizationOptions>(options =>

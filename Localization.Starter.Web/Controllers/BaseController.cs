@@ -30,13 +30,8 @@ namespace Localization.Starter.Web.Controllers
 
         public CultureInfo GetRequestCulture()
         {
-            var rqf = Request.HttpContext.Features.Get<IRequestCultureFeature>();
-            return rqf!.RequestCulture.Culture;
-        }
-
-        public bool IsWelsh()
-        {
-            return GetRequestCulture().Name == "cy-GB";
+            var requestCultureFeature = Request.HttpContext.Features.Get<IRequestCultureFeature>();
+            return requestCultureFeature!.RequestCulture.Culture;
         }
     }
 }
