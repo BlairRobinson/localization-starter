@@ -1,7 +1,7 @@
 # Localization Starter Project
-This is a starter code base for any project that has a bilingual requirement. Written in .NET 6 this project has localization already set up and can be taken and resused to get development work started faster.
+This is a starter code base for any project that has a bilingual requirement. Written in .NET 6 this project has localization already set up and can be taken and reused to get development work started faster.
 
-This project has used Welsh as the second language requirement. If you have a different language requirment [See instructions below](#changing-languages)
+This project has used Welsh as the second language requirement. If you have a different language requirement [See instructions below](#changing-languages)
 
 **Steps to build the project**
 
@@ -46,6 +46,7 @@ AddDataAnnotationsLocalization allows any annotations/attributes on properties t
 This starter project supports English (en-GB) and Welsh (cy-GB).  To replace a language with another, configure its culture and provide translations for the pages and validation messages. The steps below use French (fr-FR) as an example.
 
 1. Configure the Supported Cultures
+*In this example, "fr-FR" replaces "cy-GB" in the configured cultures array.*
 
 In Program.cs, replace "cy-GB" with "fr-FR":
 
@@ -69,7 +70,7 @@ This 'supportedCultures' array populates both SupportedCultures for formatting a
 
 Leave DefaultRequestCulture as en-GB unless another language should become the default. The default must be one of the configured cultures.
 
-Step 2: Create the Resource Files
+2. Create the Resource Files
 Copy the English resource files into the same directories, changing the culture suffix to .fr-FR.resx:
 
 Resources/Controllers/FormsController.fr-FR.resx
@@ -80,4 +81,23 @@ Resources/Views/Shared/_Layout.fr-FR.resx
 
 Use the naming convention <ViewOrTypeName>.<CultureCode>.resx. Preserve the directory structure and base filename so the framework can locate the resources.
 
-To change to the languages you can update the values in the supportCultures array. **If changing languages make sure to also update the naming of the resource files**
+**If changing languages make sure to also update the naming of the resource files**
+
+3. Translate the Resource Values
+Translate the <value> for each resource key in the new .fr-FR.resx files. Keep each [`name`](Localization.Starter.Web/Resources/Views/Forms/Edit.en-GB.resx) key unchanged because the application uses it to look up the text. Check all five resource files, including the controller and view-model resources used for form-validation messages. Preserve any placeholders, such as {0}, in translated values.
+For example, translate the value for the Submit key, but do not rename the key:
+
+```c#
+<data name="Submit" xml:space="preserve">
+  <value>Envoyer</value>
+</data>
+```
+
+4. Build and Verify Both Languages
+
+Build and run the application. Check that the language switch offers French when English is selected, and English when French is selected. Review the home page, form labels and buttons in both languages. Submit the form with required fields empty to check model-validation messages, then enter an amount greater than 10,000 to check the controller-validation message. Navigate to another page after switching language to confirm the selection persists.
+
+
+## Pitfalls and Limitations
+Missing translations are not automatically detected, so build success does not confirm translation completeness. Manually check both languages, and locale-specific / colloquial differences that may not be noted in the resource files. For example, the layout's HTML lang attribute is currently fixed to English, and the example form uses a fixed '£' symbol.
+The language switch is generated from the configured supported UI cultures, so replacing a language in the configuration does not require specific alteration of the switch.
