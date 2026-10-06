@@ -5,10 +5,12 @@ This project has used Welsh as the second language requirement. If you have a di
 
 **Steps to build the project**
 
-1. Import the project into Visual Studio
-2. Right click the solution and build
-3. If built successfully run the solution
-4. The solution has run correctly if you see the home page
+1. Open Localization.Starter.sln in Visual Studio.
+2. Allow NuGet packages to restore, then select Build > Build Solution.
+3. In Solution Explorer, set Localization.Starter.Web as the startup project if it is not already, then press F5 to run with debugging or Ctrl+F5 to run without debugging. The configured launch profile opens the application in a browser.
+4. The application is running when the home page appears. The launch profile uses https://localhost:7084 by default.
+
+*Unless stated otherwise, file paths are relative to the repository root. Resource file paths below are also shown relative to the repository root, including the `Localization.Starter.Web/` project folder.*
 
 <img src="Images/HomeScreen.png" width="1000px">
 
@@ -71,15 +73,17 @@ This 'supportedCultures' array populates both SupportedCultures for formatting a
 Leave DefaultRequestCulture as en-GB unless another language should become the default. The default must be one of the configured cultures.
 
 2. Create the Resource Files
-Copy the English resource files into the same directories, changing the culture suffix to .fr-FR.resx:
+Copy the English resource files into the same directories, changing the culture suffix to `.fr-FR.resx`. These paths are relative to the repository root:
 
-Resources/Controllers/FormsController.fr-FR.resx
-Resources/ViewModels/FormExampleViewModel.fr-FR.resx
-Resources/Views/Forms/Edit.fr-FR.resx
-Resources/Views/Home/Index.fr-FR.resx
-Resources/Views/Shared/_Layout.fr-FR.resx
+```text
+Localization.Starter.Web/Resources/Controllers/FormsController.fr-FR.resx
+Localization.Starter.Web/Resources/ViewModels/FormExampleViewModel.fr-FR.resx
+Localization.Starter.Web/Resources/Views/Forms/Edit.fr-FR.resx
+Localization.Starter.Web/Resources/Views/Home/Index.fr-FR.resx
+Localization.Starter.Web/Resources/Views/Shared/_Layout.fr-FR.resx
+```
 
-Use the naming convention <ViewOrTypeName>.<CultureCode>.resx. Preserve the directory structure and base filename so the framework can locate the resources.
+Use the naming convention `<ViewOrTypeName>.<CultureCode>.resx`. Preserve the directory structure and base filename so the framework can locate the resources.
 
 **If changing languages make sure to also update the naming of the resource files**
 
@@ -100,4 +104,4 @@ Build and run the application. Check that the language switch offers French when
 
 ## Pitfalls and Limitations
 Missing translations are not automatically detected, so build success does not confirm translation completeness. Manually check both languages, and locale-specific / colloquial differences that may not be noted in the resource files. For example, the layout's HTML lang attribute is currently fixed to English, and the example form uses a fixed '£' symbol.
-The language switch is generated from the configured supported UI cultures, so replacing a language in the configuration does not require specific alteration of the switch.
+The language switch is generated from the configured supported UI cultures, so replacing a language in the configuration does not require alteration of the selector switch.
