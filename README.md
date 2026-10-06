@@ -12,7 +12,10 @@ This project has used Welsh as the second language requirement. If you have a di
 
 *Unless stated otherwise, file paths are relative to the repository root. Resource file paths below are also shown relative to the repository root, including the `Localization.Starter.Web/` project folder.*
 
+
 <img src="Images/HomeScreen.png" width="1000px">
+<p><small>English home page with the option to switch to Welsh.</small></p>
+
 
 ## Localization
 ```c#
@@ -28,18 +31,21 @@ The lines above within the program.cs file are the keys for the setup for locali
 The first tells the application that any resource file will be contained within a folder called 'Resources'.
 
 <img src="Images/ResourcesFolder.png" width="250px">
+<p><small>The Resources folder that contains the application's localisation resource files.</small></p>
 
 <br/>
 
 AddViewLocalization tells the application that resource files for Views will be contained within then same 'Resources' folder and the name of the files will start with the name of the view.
 
 <img src="Images/ResourcesViewFolder.png" width="250px">
+<p><small>Culture-specific resource files organised by Razor view.</small></p>
 
 <br/>
 
 AddDataAnnotationsLocalization allows any annotations/attributes on properties to also be translated. Any resources for those will also sit in the 'Resources' folder and with the same name as your models.
 
 <img src="Images/ResourcesViewModelsFolder.png" width="250px">
+<p><small>Culture-specific resource files for the form view model and its validation messages.</small></p>
 
 <br/>
 
