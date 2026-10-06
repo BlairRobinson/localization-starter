@@ -1,5 +1,7 @@
 # Localization Starter Project
-This is a starter code base for any project that has a bilingual requirement. Written in .NET 6 this project has localization already set up and can be taken and reused to get development work started faster.
+This is a starter code base for any project that has a bilingual requirement. This starter has localization set up and can be copied and reused to get development work started faster.
+
+Prerequisite: Install the .NET 10 SDK. This project targets net10.0, so the .NET 10 SDK is required to build it. If using Visual Studio, use a version that supports .NET 10. Verify the SDK selected by your terminal with dotnet --version; it should report 10.x.
 
 This project has used Welsh as the second language requirement. If you have a different language requirement [See instructions below](#changing-languages)
 
