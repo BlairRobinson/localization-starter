@@ -99,7 +99,7 @@ Use the naming convention `<ViewOrTypeName>.<CultureCode>.resx`. Preserve the di
 Translate the <value> for each resource key in the new .fr-FR.resx files. Keep each [`name`](Localization.Starter.Web/Resources/Views/Forms/Edit.en-GB.resx) key unchanged because the application uses it to look up the text. Check all five resource files, including the controller and view-model resources used for form-validation messages. Preserve any placeholders, such as {0}, in translated values.
 For example, translate the value for the Submit key, but do not rename the key:
 
-```c#
+```xml
 <data name="Submit" xml:space="preserve">
   <value>Envoyer</value>
 </data>
