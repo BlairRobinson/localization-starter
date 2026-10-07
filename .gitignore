@@ -11,3 +11,4 @@ bin/
 obj/
 Debug/
 *.obj
+code_reviews/

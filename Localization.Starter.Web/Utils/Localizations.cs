@@ -7,13 +7,14 @@ namespace Localization.Starter.Web.Utils
     {
         public static CultureInfo GetRequestCulture(HttpContext request)
         {
-            var rqf = request.Features.Get<IRequestCultureFeature>();
-            return rqf!.RequestCulture.Culture;
+            var requestCultureFeature = request.Features.Get<IRequestCultureFeature>();
+            return requestCultureFeature!.RequestCulture.Culture;
         }
 
-        public static bool IsWelsh(HttpContext request)
+        public static CultureInfo GetRequestUICulture(HttpContext request)
         {
-            return GetRequestCulture(request).Name == "cy-GB";
+            var requestCultureFeature = request.Features.Get<IRequestCultureFeature>();
+            return requestCultureFeature!.RequestCulture.UICulture;
         }
     }
 }
